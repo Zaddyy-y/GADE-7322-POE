@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ResourceCollection : MonoBehaviour
 {
+    
     [SerializeField]
-    public int resourceCount = 3; //starting the game with 3 resources
+    public static int resourceCount = 3; //starting the game with 3 resources
+
+    
+    
 
     void OnMouseDown()
     {

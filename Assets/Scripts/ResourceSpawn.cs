@@ -25,7 +25,7 @@ public class ResourceSpawn : MonoBehaviour
             int i = Random.Range(0, RandomizedSpawnPoints.Count); //randomizes the spawn points
             GameObject spawnPosition = RandomizedSpawnPoints[i]; //stores the selected random spawnpoint in the variable
 
-            yield return new WaitForSeconds(5f); //interval between spawning of a resource
+            yield return new WaitForSeconds(10f); //interval between spawning of a resource
 
             Instantiate(ResourcePrefab, spawnPosition.transform.position, Quaternion.identity); //spawns a resource at the random spawn point
 

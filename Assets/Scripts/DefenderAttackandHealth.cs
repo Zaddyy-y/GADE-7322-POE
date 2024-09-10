@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefenderAttackandHealth : MonoBehaviour
 {
     public GameObject Defender;
-    public float targetRange = 2f; //Range for when the defender will take damage and deal damage
+    public float targetRange = 2f;
     public int defenderHealth = 100;
     public static int defenderAttackDamage = 10;
 
@@ -22,12 +22,12 @@ public class DefenderAttackandHealth : MonoBehaviour
 
         if (distance <= targetRange)
         {
-            AttackedConditions();
+            //AttackedConditions();
             
         }
     }
 
-    void AttackedConditions()
+    /*void AttackedConditions()
     {
         defenderHealth -= EnemyAttackandHealth.enemyAttackDamage;
         if (defenderHealth <= 0)
@@ -35,6 +35,7 @@ public class DefenderAttackandHealth : MonoBehaviour
            gameObject.SetActive(false);
         }
     }
+    */
 
     
 }

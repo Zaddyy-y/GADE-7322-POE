@@ -22,12 +22,12 @@ public class TowerAttackandHealth : MonoBehaviour
 
         if (distance <= targetRange)
         {
-            AttackedConditions();
+            //AttackedConditions();
             
         }
     }
 
-    void AttackedConditions()
+    /*void AttackedConditions()
     {
         towerHealth -= EnemyAttackandHealth.enemyAttackDamage;
         if (towerHealth <= 0)
@@ -36,6 +36,6 @@ public class TowerAttackandHealth : MonoBehaviour
            gameObject.SetActive(false);
         }
     }
-
+    */
     
 }
