@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyController3 : MonoBehaviour
 {
+    //same as the first enemy controller script, except with the 3rd enemy prefab and a different destination
     private NavMeshAgent Enemy3;
     
     

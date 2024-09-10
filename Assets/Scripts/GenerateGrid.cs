@@ -6,48 +6,42 @@ using UnityEngine.UIElements;
 
 public class GenerateGrid : MonoBehaviour
 {
-    GridCells[,] gridCell;
-    public int gridSize = 100;
-    public float gridScale = .1f;
-    public float [,] noiseMap;
-    public float noiseValue;
-    public float offsetX = 100f;
-    public float offsetY = 100f;
+    GridCells[,] gridCell; //2D array for grid cells
+    public int gridSize = 100; //size of the grid
+    public float gridScale = .1f; //scale of the grid
+    public float [,] noiseMap; //2D array for the noise map
+    public float noiseValue; // stores the value of the noise map
     public Mesh mesh;
    
 
-    public struct GridCells
+    public struct GridCells //custom value type for the grid cells
     {
-        public int Height;
+        
     }
 
 
     void Start()
     {
-        offsetX = Random.Range(0f, 1000f);
-        offsetY = Random.Range(0f, 1000f);
         NoiseMap();
         Grid();
-        GenerateMesh(gridCell);
-        
     }
 
     void OnDrawGizmos()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying)  //returns if the application is in play mode
         {
             return;
         }
 
-        for (int y = 0; y < gridSize; y++)
+        for (int y = 0; y < gridSize; y++) // Loops through the y axis (rows)
         {
-            for (int x = 0; x < gridSize; x++)
+            for (int x = 0; x < gridSize; x++) // Loops through the x axis (columns)
             {
-                GridCells cells = gridCell[x, y];
-                Gizmos.color = UnityEngine.Color.yellow;
+                GridCells cells = gridCell[x, y]; //FInd the current cells x and y coordinates
+                
 
-                Vector3 position = new Vector3(x, 0, y);
-                Gizmos.DrawCube(position, Vector3.one);
+                Vector3 position = new Vector3(x, 0, 0); //creates a position for the specfic current cell
+                Gizmos.DrawCube(position, Vector3.one); //draws a cube at the specfic position
             }
         }
     }
@@ -55,81 +49,30 @@ public class GenerateGrid : MonoBehaviour
 
     void Grid()
     {
-        gridCell = new GridCells[gridSize, gridSize];
-        for(int y = 0; y < gridSize; y++)
+        gridCell = new GridCells[gridSize, gridSize]; //creating a new 2D gridCells array with the given size value
+        for(int y = 0; y < gridSize; y++) //Loops through the rows and columns of the grid
         {
             for(int x = 0; x < gridSize; x++)
             {
-                GridCells cells = new GridCells();
+                GridCells cells = new GridCells(); //new grid cells object is created
                 
-                gridCell[x, y] = cells;  
+                gridCell[x, y] = cells;  //the created cell is put on the grid
             }
         }
     }
 
     void NoiseMap()
     {
-        noiseMap = new float[gridSize, gridSize];
+        noiseMap = new float[gridSize, gridSize]; //new array to store perlin noise values
         for (int y = 0;y < gridSize;y++)
         {
             for (int x = 0;x < gridSize;x++)
             {
-                noiseValue = Mathf.PerlinNoise(x * gridScale + offsetX, y * gridScale + offsetY);
-                noiseMap[x, y] = noiseValue;
+                noiseValue = Mathf.PerlinNoise(x * gridScale , y * gridScale ); //calculating the perlin noise values for a cell
+                noiseMap[x, y] = noiseValue; //storing the calculated noise value in the new array
             }
         }
     }
-
-    
-
-    void GenerateMesh(GridCells[,] gridCell)
-    {
-        Mesh gridMesh = new Mesh();
-        
-        int width = gridCell.GetLength(0);
-        int height = gridCell.GetLength(1);
-        Vector3[] vertices = new Vector3[width * height];
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                vertices[x + y * width] = new Vector3(x, gridCell[x, y].Height, y);
-            }
-        }
-
-        
-        int[] triangles = new int[(width - 1) * (height - 1) * 6];
-        int t = 0;
-        for (int x = 0; x < width - 1; x++)
-        {
-            for (int y = 0; y < height - 1; y++)
-            {
-                int bottomLeft = x + y * width;
-                int bottomRight = (x + 1) + y * width;
-                int topLeft = x + (y + 1) * width;
-                int topRight = (x + 1) + (y + 1) * width;
-
-                triangles[t++] = bottomLeft;
-                triangles[t++] = topLeft;
-                triangles[t++] = bottomRight;
-                triangles[t++] = bottomRight;
-                triangles[t++] = topLeft;
-                triangles[t++] = topRight;
-
-
-            }
-
-        }
-
-        mesh.vertices = vertices;
-        mesh.triangles = triangles;
-
-        
-        mesh.RecalculateNormals();
-        
-        GetComponent<MeshFilter>().mesh = mesh;
-    }
-
     
 }
                 
