@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemyPrefab1;
-    public GameObject enemyPrefab2;
-    public GameObject enemyPrefab3;
-    public GameObject enemySpawnPoint1;
-    public GameObject enemySpawnPoint2;
-    public GameObject enemySpawnPoint3;
+    public GameObject EnemyPrefab1;
+    public GameObject EnemyPrefab2;
+    public GameObject EnemyPrefab3;
+    public GameObject EnemySpawnPoint1;
+    public GameObject EnemySpawnPoint2;
+    public GameObject EnemySpawnPoint3;
 
     private void Start()
     {
@@ -23,18 +23,18 @@ public class EnemySpawn : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
 
-            Vector3 spawnPos1 = enemySpawnPoint1.transform.position;
-            GameObject enemy1 = Instantiate(enemyPrefab1, spawnPos1, Quaternion.identity);
+            Vector3 spawnPos1 = EnemySpawnPoint1.transform.position;
+            GameObject Enemy1 = Instantiate(EnemyPrefab1, spawnPos1, Quaternion.identity);
 
             yield return new WaitForSeconds(3f);
 
-            Vector3 spawnPos2 = enemySpawnPoint2.transform.position;
-            GameObject enemy2 = Instantiate(enemyPrefab2, spawnPos2, Quaternion.identity);
+            Vector3 spawnPos2 = EnemySpawnPoint2.transform.position;
+            GameObject Enemy2 = Instantiate(EnemyPrefab2, spawnPos2, Quaternion.identity);
 
             yield return new WaitForSeconds(3f);
 
-            Vector3 spawnPos3 = enemySpawnPoint3.transform.position;
-            GameObject enemy3 = Instantiate(enemyPrefab3, spawnPos3, Quaternion.identity);
+            Vector3 spawnPos3 = EnemySpawnPoint3.transform.position;
+            GameObject Enemy3 = Instantiate(EnemyPrefab3, spawnPos3, Quaternion.identity);
             
         }
 
