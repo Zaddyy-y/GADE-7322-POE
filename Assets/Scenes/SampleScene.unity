@@ -2174,7 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d7f69ddce59be4592f0ef3a70083dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tower: {fileID: 0}
+  Tower: {fileID: 1328732859}
   targetRange: 2
   towerHealth: 120
 --- !u!65 &592826411
