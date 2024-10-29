@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//SIMILAR SCRIPT TO ATTACKANDHEALTH SCRIPT, JUST FOR ENEMY2 AND DEFENDER2 SPECIFICALLY
 public class AttackAndHealth2 : MonoBehaviour
 {
     public float health = 100;
@@ -33,8 +34,9 @@ public class AttackAndHealth2 : MonoBehaviour
         {
             LowerHealth(10);
         }
-
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,6 +44,8 @@ public class AttackAndHealth2 : MonoBehaviour
         {
             LowerDefenderHealth(30);
         }
+
+        
     }
 
     public void LowerHealth(float damage)
