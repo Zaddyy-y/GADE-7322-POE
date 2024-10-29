@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3189329773713997021}
   - component: {fileID: 2158274657983161058}
   - component: {fileID: 8510830735187966780}
-  - component: {fileID: -8203513814865193455}
   m_Layer: 0
   m_Name: Defender1
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5905028591909833881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.63, y: 0.79, z: 31.71}
+  m_LocalPosition: {x: 51.01, y: 0.79, z: 32.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,20 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8203513814865193455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5905028591909833881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8332f2bbdc87a664a94d2c19d9e20eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Defender: {fileID: 5905028591909833881}
-  targetRange: 2
-  defenderHealth: 100
+  m_Size: {x: 1, y: 1, z: 9.121893}
+  m_Center: {x: 0, y: 0, z: -4.0609465}

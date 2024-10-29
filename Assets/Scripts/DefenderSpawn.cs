@@ -9,7 +9,8 @@ public class DefenderSpawn : MonoBehaviour
     public float offsetX = -2f;
     public float offsetZ = -2f; //offset values
     public float offsetY = -1f;
-    
+
+   
 
     void OnMouseDown()
     {
@@ -25,4 +26,5 @@ public class DefenderSpawn : MonoBehaviour
             Debug.Log("Count" +  ResourceCollect.resourceCount);
         }
     }
+
 }
