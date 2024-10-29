@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AttackAndHealth : MonoBehaviour
+public class AttackAndHealth3 : MonoBehaviour
 {
-    public float health = 50;
-    public float defenderHealth = 100;
-    public Image enemyHealthBar;
+    public float health = 80;
+    public Image healthBar;
+    public float defenderHealth = 80;
     public Image defenderHealthBar;
 
 
@@ -16,48 +16,45 @@ public class AttackAndHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(EnemySpawn.Instance1);
-            
+            Destroy(EnemySpawn.Instance3);
+
         }
 
         if (defenderHealth <= 0)
         {
             Destroy(gameObject);
         }
-        
+
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            LowerEnemyHealth(5);
+            LowerHealth(8);
         }
 
-
-
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            LowerDefenderHealth(5);
+            LowerDefenderHealth(20);
         }
     }
 
-    public void LowerEnemyHealth(float damage)
+    public void LowerHealth(float damage)
     {
         health -= damage;
-        enemyHealthBar.fillAmount = health / 50;
+        healthBar.fillAmount = health / 80;
 
-        
+
     }
 
     public void LowerDefenderHealth(float damage)
     {
         defenderHealth -= damage;
-        defenderHealthBar.fillAmount = health / 100;
+        defenderHealthBar.fillAmount = health / 80;
     }
-
-
 }

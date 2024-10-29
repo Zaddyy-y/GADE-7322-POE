@@ -8,12 +8,11 @@ using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
-    
-   
+    public bool canSpawn = true;
     public static GameObject Instance1;
-    private static GameObject Instance2;
-    private static GameObject Instance3;
-    
+    public static GameObject Instance2;
+    public static GameObject Instance3;
+    private Coroutine coroutine;
     public GameObject EnemyPrefab1; //enemy prefabs
     public GameObject EnemyPrefab2;
     public GameObject EnemyPrefab3;
@@ -21,34 +20,45 @@ public class EnemySpawn : MonoBehaviour
     public GameObject EnemySpawnPoint2;
     public GameObject EnemySpawnPoint3;
 
+    
+
     private void Start()
     {
-        StartCoroutine(EnemySpawner()); // running the coroutine on Start
+        StartCoroutine(EnemySpawner());
     }
 
-   
+    public void StartSpawningAgain()
+    {
+        
+        if (canSpawn == true && EnemyPrefab1 == null && EnemyPrefab2 == null && EnemyPrefab3 == null)
+        {
+            StartCoroutine(EnemySpawner());
+        }
+    }
+
+
 
 
 
     IEnumerator EnemySpawner() //spawns enemies
     {
-        for (int i = 0; i < 3; i++) 
+        while (canSpawn == true)
         {
 
             yield return new WaitForSeconds(2f); //interval between the spawning of enemies
 
             Vector3 spawnPos1 = EnemySpawnPoint1.transform.position; //setting the spawn point for enemy 1
-            Instance1 = Instantiate(EnemyPrefab1, spawnPos1, Quaternion.identity); //spawning enemy 1 at the specified spawn point
+            Instance1 = (GameObject) Instantiate(EnemyPrefab1, spawnPos1, Quaternion.identity); //spawning enemy 1 at the specified spawn point
 
             yield return new WaitForSeconds(10f);
 
             Vector3 spawnPos2 = EnemySpawnPoint2.transform.position; //setting the spawn point for enemy 2
-            Instance2 = Instantiate(EnemyPrefab2, spawnPos2, Quaternion.identity); //spawning enemy 2 at the specified spawn point
+            Instance2 = (GameObject) Instantiate(EnemyPrefab2, spawnPos2, Quaternion.identity); //spawning enemy 2 at the specified spawn point
 
             yield return new WaitForSeconds(10f);
 
             Vector3 spawnPos3 = EnemySpawnPoint3.transform.position; //setting the spawn point for enemy 3
-            Instance3 = Instantiate(EnemyPrefab3, spawnPos3, Quaternion.identity); //spawning enemy 2 at the specified spawn point
+            Instance3 = (GameObject) Instantiate(EnemyPrefab3, spawnPos3, Quaternion.identity); //spawning enemy 2 at the specified spawn point
 
         }
 
