@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Frequencies 
 {
-    public static float Frequency(string frequency) //Different frequencies atatched to their own string number to be used in an array in the sound generator script
+    public static float Frequency(string frequency) //Different frequencies attached to their own string number to be used in an array in the sound generator script
     {
         switch (frequency)
         {
