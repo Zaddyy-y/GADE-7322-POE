@@ -9,8 +9,8 @@ public class SoundGenerator : MonoBehaviour
     private float nextWavePhase;
     private float waveSample;
     private float wavePhase;
-   [SerializeField] public float waveFrequency = 261.62f;
-   [SerializeField, Range (0,1)] public float waveAmplitude = 0.5f;
+    public float waveFrequency = 261.62f;
+    public float waveAmplitude = 0.5f;
     private int frequencyIndex = 0;
     private string[] frequency = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };  
     private float[] frequencyDurations = { 0.5f, 0.5f, 0.5f, 0.5f, 1f, 1f, 0.5f, 0.5f, 1f, 1f };  
@@ -70,10 +70,10 @@ public class SoundGenerator : MonoBehaviour
     {
         while (frequencyIndex < frequency.Length)
         {
-            // Get the frequency for the current note
+           
             waveFrequency = Frequencies.Frequency(frequency[frequencyIndex]); //Fetches the current frequency
 
-            // Wait for the duration of the current note
+            
             float frequencyDuration = frequencyDurations[frequencyIndex];
             playNextFrequency = Time.time + frequencyDuration; //Waits for the specified duration
 
@@ -86,6 +86,13 @@ public class SoundGenerator : MonoBehaviour
 
            
             frequencyIndex++; //Moves on to the next frequency
+
+            if (frequencyIndex >= frequency.Length)
+            {
+                frequencyIndex = 0;
+            }
+
+            
         }
     }
 }
